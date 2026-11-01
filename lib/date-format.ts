@@ -6,6 +6,8 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   timeZone: "UTC",
 });
-export const formatEventDate = (iso: string) => {
-  return dateFormatter.format(new Date(iso));
-};
+export function formatEventDate(iso: string) {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "Date not set yet";
+  return dateFormatter.format(date);
+}

@@ -11,10 +11,10 @@ export default function EventThumbnail({
   src?: string;
   alt: string;
 }) {
-  const [failed, setFailed] = useState(false);
+  // Remember WHICH url failed, so a corrected url gets a fresh try.
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
 
-  // Missing or broken URL: show a calm placeholder instead of a broken image icon.
-  if (!src || failed) {
+  if (!src || failedSrc === src) {
     return (
       <div className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground">
         <HeartHandshake className="size-9" aria-hidden="true" />
@@ -28,7 +28,7 @@ export default function EventThumbnail({
       alt={alt}
       fill
       unoptimized
-      onError={() => setFailed(true)}
+      onError={() => setFailedSrc(src)}
       className="object-cover transition-transform duration-300 ease-out motion-safe:group-hover:scale-105"
     />
   );
