@@ -139,3 +139,55 @@
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
+/* Hero illustration colors (Purple Light + Premium Dark) */
+.hero-illustration {
+  --il-sky: #ede7f9;
+  --il-sun: #e6a94b;
+  --il-cloud: #ffffff;
+  --il-ink: #2a2340;
+  --il-far: #e3dcf2;
+  --il-mid: #cbb8f0;
+  --il-ground: #ffffff;
+  --il-primary: #5b3fa8;
+  --il-primary2: #7a5fc7;
+  --il-trunk: #2a2340;
+  --il-soil: #7a5a48;
+  --il-pants: #2a2340;
+  --il-hair: #2a2340;
+}
+
+.dark .hero-illustration {
+  --il-sky: #161821;
+  --il-sun: #8ea2ff;
+  --il-cloud: #1d2030;
+  --il-ink: #a3a5b5;
+  --il-far: #1d2030;
+  --il-mid: #2b3150;
+  --il-ground: #0e0f14;
+  --il-primary: #e2c07a;
+  --il-primary2: #f0d79f;
+  --il-trunk: #a3a5b5;
+  --il-soil: #3a3f55;
+  --il-pants: #8a8da3;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}

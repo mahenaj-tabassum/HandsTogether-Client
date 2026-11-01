@@ -28,7 +28,7 @@ export function MobileMenu({ user }: { user: CurrentUser | null }) {
         <Button
           variant="outline"
           aria-label="Open menu"
-          className="size-11 rounded-full p-0 md:hidden"
+          className="size-11 cursor-pointer rounded-full p-0 md:hidden"
         >
           <Menu className="size-5" aria-hidden="true" />
         </Button>
