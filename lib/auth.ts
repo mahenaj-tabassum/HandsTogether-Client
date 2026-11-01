@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { MongoClient } from "mongodb";
+import {jwt} from "better-auth/plugins"
 
 // Create a MongoDB client using the database connection URL from environment variables.
 const client = new MongoClient(process.env.MONGODB_DATABASE_URL as string);
@@ -8,6 +9,7 @@ const client = new MongoClient(process.env.MONGODB_DATABASE_URL as string);
 // Select the "HandsTogether" database.
 const db = client.db("HandsTogether");
 export const auth = betterAuth({
+  plugins: [jwt()],
   database: mongodbAdapter(db, { client }),
   emailAndPassword: {
     enabled: true,
