@@ -4,6 +4,7 @@ import { Providers } from "@/components/providers";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ConditionalNavbar } from "@/components/layout/ConditionalNavbar";
+import Footer from "@/components/layout/Footer";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -44,12 +45,13 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(dmSans.variable, jakarta.variable)}
     >
-      <body className="min-h-dvh">
+      <body className="flex min-h-dvh flex-col">
         <Providers>
           <ConditionalNavbar />
-          <main id="main">{children}</main>
-
-          {/* <Footer /> এখানে বসবে (পরের ধাপ) */}
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </Providers>
       </body>
     </html>
