@@ -1,12 +1,15 @@
 import { EVENT_TYPES } from "@/lib/event-types";
+import type { EventItem } from "@/types/event";
 
 export type EventInput = {
   title: string;
   eventType: string;
   eventDate: string; // "2026-12-20", straight from <input type="date">
+  eventTime: string; // "09:30", straight from <input type="time">
   location: string;
   thumbnail: string;
   description: string;
+  capacity: string; // Kept as text because that is what an <input> gives us.
 };
 
 export type FieldErrors = Partial<Record<keyof EventInput, string>>;
@@ -28,8 +31,12 @@ export function getMinEventDate() {
 }
 
 // The server checks the same rules again. This copy only gives instant feedback.
-export function validateEventForm(values: EventInput): FieldErrors {
+export function validateEventForm(
+  values: EventInput,
+  originalDate?: string,
+): FieldErrors {
   const errors: FieldErrors = {};
+
   const title = values.title.trim();
   const location = values.location.trim();
   const thumbnail = values.thumbnail.trim();
@@ -43,9 +50,19 @@ export function validateEventForm(values: EventInput): FieldErrors {
     errors.eventType = "Choose an event type.";
   }
 
-  if (!values.eventDate) errors.eventDate = "Pick the event date.";
-  else if (values.eventDate < getMinEventDate())
+  if (!values.eventDate) {
+    errors.eventDate = "Pick the event date.";
+  } else if (
+    values.eventDate < getMinEventDate() &&
+    values.eventDate !== originalDate
+  ) {
     errors.eventDate = "Choose a date in the future.";
+  }
+
+  // Same pattern as the server: 00:00 to 23:59
+  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(values.eventTime)) {
+    errors.eventTime = "Pick the start time.";
+  }
 
   if (location.length < 2)
     errors.location = "Enter where the event will happen.";
@@ -61,5 +78,26 @@ export function validateEventForm(values: EventInput): FieldErrors {
   else if (description.length > 1000)
     errors.description = "Description must be 1000 characters or fewer.";
 
+  // Number("") is 0, so an empty box fails the "at least 1" check too.
+  const capacity = Number(values.capacity);
+
+  if (!Number.isInteger(capacity) || capacity < 1 || capacity > 5000) {
+    errors.capacity = "Enter a whole number between 1 and 5000.";
+  }
+
   return errors;
+}
+
+// Turns a saved event into the text-only shape the form works with.
+export function eventToInput(event: EventItem): EventInput {
+  return {
+    title: event.title,
+    eventType: event.eventType,
+    eventDate: event.eventDate.slice(0, 10),
+    eventTime: event.eventTime,
+    location: event.location,
+    thumbnail: event.thumbnail,
+    description: event.description,
+    capacity: String(event.capacity),
+  };
 }
