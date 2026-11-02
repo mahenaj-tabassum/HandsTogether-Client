@@ -1,15 +1,22 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CalendarDays, Heart, MapPin } from "lucide-react";
+import {
+  ArrowLeft,
+  CalendarDays,
+  Clock,
+  Heart,
+  MapPin,
+  Users,
+} from "lucide-react";
 import { getEventById } from "@/lib/api/api";
-import { formatEventDate } from "@/lib/date-format";
+import { formatEventDate, formatEventTime } from "@/lib/date-format";
 import { getTypeChipClass } from "@/lib/event-types";
 import type { EventItem } from "@/types/event";
 import EventThumbnail from "./EventThumbnail";
 import EventsError from "./EventsError";
 import EventDetailsSkeleton from "./EventDetailsSkeleton";
-import JoinEventButton from "./JoinEventButton";
+import JoinEventButton from "../joined/JoinEventButton";
 
 function DetailRow({
   icon: Icon,
@@ -57,6 +64,7 @@ async function EventDetailsContent({
   const startOfToday = new Date();
   startOfToday.setUTCHours(0, 0, 0, 0);
   const hasEnded = new Date(event.eventDate).getTime() < startOfToday.getTime();
+  const spotsLeft = Math.max(event.capacity - event.joinedCount, 0);
 
   return (
     <div className="grid items-start gap-8 lg:grid-cols-[1.6fr_1fr]">
@@ -97,16 +105,28 @@ async function EventDetailsContent({
               {formatEventDate(event.eventDate)}
             </time>
           </DetailRow>
+          <DetailRow icon={Clock} label="Time">
+            {formatEventTime(event.eventTime)}
+          </DetailRow>
           <DetailRow icon={MapPin} label="Location">
             {event.location}
           </DetailRow>
           <DetailRow icon={Heart} label="Event type">
             {event.eventType}
           </DetailRow>
+          <DetailRow icon={Users} label="Spots">
+            {spotsLeft === 0
+              ? "Event is full"
+              : `${spotsLeft} of ${event.capacity} spots left`}
+          </DetailRow>
         </div>
 
         <div className="mt-6 border-t border-border pt-6">
-          <JoinEventButton eventId={event._id} hasEnded={hasEnded} />
+          <JoinEventButton
+            eventId={event._id}
+            hasEnded={hasEnded}
+            isFull={spotsLeft === 0}
+          />
         </div>
       </aside>
     </div>

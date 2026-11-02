@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { EventItem } from "@/types/event";
-import { formatEventDate } from "@/lib/date-format";
+import { formatEventDate, formatEventTime } from "@/lib/date-format";
 import { getTypeChipClass } from "@/lib/event-types";
 import EventThumbnail from "./EventThumbnail";
 
@@ -32,9 +32,12 @@ export default function EventCard({ event }: { event: EventItem }) {
           </li>
           <li className="flex items-center gap-2">
             <CalendarDays className="size-4 shrink-0" aria-hidden="true" />
-            <time dateTime={event.eventDate}>
-              {formatEventDate(event.eventDate)}
-            </time>
+            <span>
+              <time dateTime={event.eventDate}>
+                {formatEventDate(event.eventDate)}
+              </time>
+              {event.eventTime && <> · {formatEventTime(event.eventTime)}</>}
+            </span>
           </li>
         </ul>
 
