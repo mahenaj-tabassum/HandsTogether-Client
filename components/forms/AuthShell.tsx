@@ -34,6 +34,19 @@ const isValidUrl = (value: string) => {
   }
 };
 
+// CHANGED (new): where to send the user after login. Call it only inside event handlers,
+// because it reads window. Only paths on our own site are allowed:
+// "/events/123" is fine; "https://evil.com", "//evil.com" and "/\evil.com" are not.
+const getSafeRedirect = () => {
+  const target = new URLSearchParams(window.location.search).get("redirect");
+  const isOwnPath =
+    target &&
+    target.startsWith("/") &&
+    !target.startsWith("//") &&
+    !target.startsWith("/\\");
+  return isOwnPath ? target : "/";
+};
+
 const AuthShell = ({ mode }: { mode: Mode }) => {
   const router = useRouter();
   const isSignUp = mode === "up";
@@ -102,7 +115,7 @@ const AuthShell = ({ mode }: { mode: Mode }) => {
         }
         toast.success("Welcome back!");
       }
-      router.push("/");
+      router.push(getSafeRedirect()); // CHANGED: was router.push("/")
       router.refresh();
     } catch {
       toast.error("Something went wrong. Please try again.");
@@ -115,7 +128,7 @@ const AuthShell = ({ mode }: { mode: Mode }) => {
     setSocialLoading(provider);
     const { error } = await authClient.signIn.social({
       provider,
-      callbackURL: "/",
+      callbackURL: getSafeRedirect(), // CHANGED: was "/"
     });
     // On success the browser redirects away, so we only handle the failure case.
     if (error) {
