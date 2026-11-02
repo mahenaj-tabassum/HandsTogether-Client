@@ -1,9 +1,12 @@
-import React from 'react'
+import type { Metadata } from "next";
+import ProfileView from "@/components/profile/ProfileView";
 
-const ProfilePage = () => {
+export const metadata: Metadata = { title: "Profile" };
+
+export default function ProfilePage() {
   return (
-	<div>ProfilePage</div>
-  )
+    <main className="mx-auto w-full max-w-[1100px] px-6 pb-16 pt-12">
+      <ProfileView />
+    </main>
+  );
 }
-
-export default ProfilePage
