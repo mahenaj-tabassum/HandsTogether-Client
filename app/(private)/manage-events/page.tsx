@@ -1,9 +1,12 @@
-import React from 'react'
+import type { Metadata } from "next";
+import ManageEventsView from "@/components/manage/ManageEventsView";
 
-const ManageEventsPage = () => {
+export const metadata: Metadata = { title: "Manage Events" };
+
+export default function ManageEventsPage() {
   return (
-	<div>ManageEventsPage</div>
-  )
+    <main className="mx-auto w-full max-w-[1100px] px-6 pb-16 pt-12">
+      <ManageEventsView />
+    </main>
+  );
 }
-
-export default ManageEventsPage
