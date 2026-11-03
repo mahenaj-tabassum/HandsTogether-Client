@@ -1,4 +1,4 @@
-// ADJUST: keep this list the same as the Create Event dropdown. We will reuse it there.
+// ADJUST: Keep this list the same as the Create Event dropdown. We will reuse it there.
 export const EVENT_TYPES = [
   "Plantation",
   "Cleanup",

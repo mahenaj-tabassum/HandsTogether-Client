@@ -2,12 +2,10 @@ import HeroIllustration from "@/components/home/HeroIllustration";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import NextUpTile from "@/components/home/NextUpTile";
 
 // TODO(replace): dummy data. Later, load the volunteer count from the backend stats API.
 const HERO_STAT = { value: "1,200+", label: "Volunteers joined" };
-
-// TODO(replace): dummy data. Later, use the nearest upcoming event from the events API.
-const NEXT_EVENT = { title: "Tree Plantation Drive", date: "Dec 14, 2026" };
 
 // Small helper so each block enters one after another (stagger).
 const delay = (ms: number) => ({ animationDelay: `${ms}ms` });
@@ -85,15 +83,7 @@ export default function Hero() {
           </div>
 
           {/* Tile 3: Next up */}
-          <div className="flex flex-col justify-end rounded-xl sm:rounded-tile bg-accent p-5 text-accent-foreground sm:p-6">
-            <span className="text-xs font-semibold uppercase tracking-[0.08em]">
-              Next up
-            </span>
-            <p className="mt-1.5 font-heading text-[19px] font-bold leading-tight">
-              {NEXT_EVENT.title}
-            </p>
-            <p className="mt-1 text-sm font-medium">{NEXT_EVENT.date}</p>
-          </div>
+          <NextUpTile />
 
           {/* Tile 4: call to action */}
           <Link

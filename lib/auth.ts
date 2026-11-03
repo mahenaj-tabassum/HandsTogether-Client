@@ -1,7 +1,7 @@
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { MongoClient } from "mongodb";
-import {jwt} from "better-auth/plugins"
+import { jwt } from "better-auth/plugins";
 
 // Create a MongoDB client using the database connection URL from environment variables.
 const client = new MongoClient(process.env.MONGODB_DATABASE_URL as string);
@@ -14,7 +14,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
-   baseURL: process.env.BETTER_AUTH_CLIENT_URL,
+  baseURL: process.env.BETTER_AUTH_CLIENT_URL,
   socialProviders: {
     github: {
       clientId: process.env.GITHUB_CLIENT_ID as string,

@@ -2,7 +2,7 @@ import { EventItem } from "../../types/event";
 
 type EventsResponse = { success: boolean; count: number; events: EventItem[] };
 export type EventFilters = { limit?: number; type?: string; q?: string };
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://hands-together-server.vercel.app";
 
 // Upcoming events with optional filters. Empty filters are simply left out of the URL.
 export const getEvents = async (
@@ -40,6 +40,6 @@ export const getEventById = async (id: string): Promise<EventItem | null> => {
   if (!response.ok) {
     throw new Error(`Failed to load event (${response.status})`);
   }
-  const data: { success: boolean; event: EventItem } = await response.json();
-  return data.event;
+  const data: { success: boolean; data: EventItem } = await response.json();
+  return data.data;
 };

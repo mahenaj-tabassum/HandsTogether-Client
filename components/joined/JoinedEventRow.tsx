@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { JoinedEvent } from "@/lib/api-client";
+import type { JoinedEvent } from "@/lib/api/api-client";
 import { formatEventDate, formatEventTime } from "@/lib/date-format";
 import { getTypeChipClass } from "@/lib/event-types";
 

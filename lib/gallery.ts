@@ -15,7 +15,7 @@ export type GalleryItem = {
 export const galleryItems: GalleryItem[] = [
   {
     id: "g1",
-    src: "/gallery/tree-plantation.jpg",
+    src: "/tree-plantation.jpg",
     alt: "Volunteers planting young trees together in a park",
     title: "Tree Plantation",
     location: "Chattogram",
@@ -24,7 +24,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "g2",
-    src: "/gallery/food-donation.jpg",
+    src: "/food-donation.jpg",
     alt: "Volunteers handing out meals to people in need",
     title: "Food Donation",
     location: "Dhaka",
@@ -33,7 +33,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "g3",
-    src: "/gallery/clothes-donation.jpg",
+    src: "/clothes-donation.jpg",
     alt: "Boxes of donated winter clothes ready for distribution",
     title: "Winter Clothes Drive",
     location: "Mirpur 10, Dhaka",
@@ -42,7 +42,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "g4",
-    src: "/gallery/educational-support.jpg",
+    src: "/educational-support.jpg",
     alt: "A volunteer teaching a group of children",
     title: "Educational Support",
     location: "Rajshahi",
@@ -51,7 +51,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "g5",
-    src: "/gallery/blood-donation.jpg",
+    src: "/blood-donation.jpg",
     alt: "People donating blood at a community camp",
     title: "Blood Donation Camp",
     location: "Cumilla",
@@ -60,7 +60,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "g6",
-    src: "/gallery/street-cleanup.jpg",
+    src: "/street-cleanup.jpg",
     alt: "Volunteers in gloves cleaning a neighborhood street",
     title: "Neighborhood Cleanup",
     location: "Khulna",
@@ -69,7 +69,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "g7",
-    src: "/gallery/seedling-day.jpg",
+    src: "/seedling-day.jpg",
     alt: "Hands planting a small seedling in the soil",
     title: "Seedling Day",
     location: "Barishal",
@@ -78,7 +78,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "g8",
-    src: "/gallery/beach-cleanup.jpg",
+    src: "/beach-cleanup.jpg",
     alt: "Volunteers collecting litter along a beach",
     title: "Community Cleanup",
     location: "Patenga",

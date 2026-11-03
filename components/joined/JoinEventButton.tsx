@@ -6,7 +6,7 @@ import { Check, Loader2, Lock } from "lucide-react";
 import { toast } from "react-toastify";
 import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
-import { ApiError, getJoinStatus, joinEvent } from "@/lib/api-client";
+import { ApiError, getJoinStatus, joinEvent } from "@/lib/api/api-client";
 
 export default function JoinEventButton({
   eventId,

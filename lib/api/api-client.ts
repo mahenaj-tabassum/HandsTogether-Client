@@ -2,7 +2,9 @@ import { authClient } from "@/lib/auth-client"; // ADJUST: your auth client path
 import type { EventItem } from "@/types/event";
 import type { EventInput, FieldErrors } from "@/lib/validate-event";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  "https://hands-together-server.vercel.app ";
 
 export type JoinedEvent = EventItem & { joinedAt: string };
 

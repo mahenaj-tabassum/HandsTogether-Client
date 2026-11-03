@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { EVENT_TYPES } from "@/lib/event-types";
-import { ApiError } from "@/lib/api-client";
+import { ApiError } from "@/lib/api/api-client";
 import {
   getMinEventDate,
   validateEventForm,

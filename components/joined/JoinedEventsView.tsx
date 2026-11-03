@@ -4,7 +4,11 @@ import { useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
 import { AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ApiError, getJoinedEvents, type JoinedEvent } from "@/lib/api-client";
+import {
+  ApiError,
+  getJoinedEvents,
+  type JoinedEvent,
+} from "@/lib/api/api-client";
 import {
   sortByDate,
   splitJoinedEvents,

@@ -31,7 +31,7 @@ import {
   deleteEvent,
   getMyEvents,
   updateEvent,
-} from "@/lib/api-client";
+} from "@/lib/api/api-client";
 import { eventToInput } from "@/lib/validate-event";
 import type { EventItem } from "@/types/event";
 

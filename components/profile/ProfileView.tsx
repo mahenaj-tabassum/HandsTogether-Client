@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Field } from "@/components/events/EventForm";
 import ProfileAvatar from "./ProfileAvatar";
 import { authClient } from "@/lib/auth-client";
-import { getJoinedEvents, getMyEvents } from "@/lib/api-client";
+import { getJoinedEvents, getMyEvents } from "@/lib/api/api-client";
 import { isHttpUrl } from "@/lib/validate-event";
 
 type ProfileUser = {

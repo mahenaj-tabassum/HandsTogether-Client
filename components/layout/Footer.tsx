@@ -132,7 +132,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-[#43308A] pt-6 text-sm text-[#CBB8F0] dark:border-border dark:text-muted-foreground">
-          © {new Date().getFullYear()} HandsTogether. All rights reserved.
+          © 2026 HandsTogether. All rights reserved.
         </div>
       </div>
     </footer>

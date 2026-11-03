@@ -8,7 +8,7 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EventCard from "@/components/events/EventCard";
 import EventForm from "@/components/events/EventForm";
-import { createEvent } from "@/lib/api-client";
+import { createEvent } from "@/lib/api/api-client";
 import { isHttpUrl, type EventInput } from "@/lib/validate-event";
 import type { EventItem } from "@/types/event";
 

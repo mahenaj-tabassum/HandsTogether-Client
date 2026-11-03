@@ -45,7 +45,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(dmSans.variable, jakarta.variable)}
     >
-      <body className="flex min-h-dvh flex-col">
+      <body suppressHydrationWarning className="flex min-h-dvh flex-col">
         <Providers>
           <ConditionalNavbar />
           <main id="main" className="flex-1">

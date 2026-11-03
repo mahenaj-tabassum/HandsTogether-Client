@@ -1,4 +1,4 @@
-import type { JoinedEvent } from "@/lib/api-client";
+import type { JoinedEvent } from "@/lib/api/api-client";
 
 export type Tab = "upcoming" | "past";
 export type SortOrder = "asc" | "desc";
