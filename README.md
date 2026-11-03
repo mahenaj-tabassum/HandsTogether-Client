@@ -1,6 +1,6 @@
-# HansTogether — Social Development Events Platform
+# HandsTogether — Social Development Events Platform
 
-HansTogether is a community platform where people discover local social-development events, create their own, join as volunteers, and keep track of everything they have signed up for. Think tree plantations, winter clothes distributions, community cleanups, food and blood donation drives.
+HandsTogether is a community platform where people discover local social-development events, create their own, join as volunteers, and keep track of everything they have signed up for. Think tree plantations, winter clothes distributions, community cleanups, food and blood donation drives.
 
 **Live site:**
 
@@ -81,7 +81,7 @@ HansTogether is a community platform where people discover local social-developm
 
 - Node.js 20 or newer
 - A MongoDB database (local or MongoDB Atlas)
-- The HansTogether server running (see the server repository)
+- The HandsTogether server running (see the server repository)
 
 ### Installation
 

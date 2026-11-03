@@ -23,7 +23,7 @@ export default function EventsNoResults({
       <div className="mt-2 flex flex-wrap justify-center gap-3">
         {/* ADJUST: your real Create Event route */}
         <Button asChild className="h-[52px] rounded-full px-7 font-semibold">
-          <Link href="/events/create">Create an Event</Link>
+          <Link href="/create-event">Create an Event</Link>
         </Button>
         {hasFilters && (
           <Button

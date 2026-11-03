@@ -19,7 +19,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/events/create",
+    "/create-event",
     "/joined-events/:path*",
     "/manage-events/:path*", // guess: change to your real route
     "/profile/:path*", // guess: change to your real route
