@@ -5,6 +5,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ConditionalNavbar } from "@/components/layout/ConditionalNavbar";
 import Footer from "@/components/layout/Footer";
+import { Suspense } from "react";
+import { NavbarSkeleton } from "@/components/layout/NavbarSkeleton";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -47,7 +49,10 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning className="flex min-h-dvh flex-col">
         <Providers>
-          <ConditionalNavbar />
+          {/* usePathname() needs Suspense on dynamic routes */}
+          <Suspense fallback={<NavbarSkeleton />}>
+            <ConditionalNavbar />
+          </Suspense>
           <main id="main" className="flex-1">
             {children}
           </main>
