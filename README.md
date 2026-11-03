@@ -2,7 +2,7 @@
 
 HandsTogether is a community platform where people discover local social-development events, create their own, join as volunteers, and keep track of everything they have signed up for. Think tree plantations, winter clothes distributions, community cleanups, food and blood donation drives.
 
-**Live site:**
+**Live site:** https://hands-together-client.vercel.app
 
 **Server repository:** https://github.com/mahenaj-tabassum/HandsTogether-Server
 
